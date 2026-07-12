@@ -1,0 +1,56 @@
+{
+  "integration": {
+    "target_repository": "Camelot-Fair-Rise-of-Excalibur",
+    "schema_version": "1.0.0",
+    "updated_at": "2026-07-12T00:00:00Z"
+  },
+  "token": {
+    "name": "Excalibur",
+    "symbol": "EXCAL",
+    "canonical_symbol": "EXS",
+    "decimals": 8,
+    "max_supply": 21000000
+  },
+  "enhanced_tokenomics": {
+    "forge_reward": 50,
+    "forge_fee_btc": 0.0001,
+    "distribution_percent": {
+      "proof_of_forge": 60,
+      "treasury": 15,
+      "liquidity": 20,
+      "airdrop": 5
+    },
+    "tail_emission_reward": 0.1,
+    "difficulty_adjustment_window_forges": 144
+  },
+  "interactive_dapp": {
+    "wallet_connect_route": "/web/knights-round-table",
+    "admin_route": "/admin/merlins-portal",
+    "forge_action": {
+      "name": "draw_the_sword",
+      "required_axiom_words": 13
+    },
+    "events": [
+      "wallet_connected",
+      "forge_started",
+      "forge_verified",
+      "reward_distributed"
+    ]
+  },
+  "unity": {
+    "config_asset_name": "EXCALGameEconomyConfig",
+    "addressables_key": "EXCAL_TOKENOMICS",
+    "webgl_bridge": {
+      "provider": "window.excaliburDapp",
+      "wallet_method": "connectWallet",
+      "forge_method": "startForge"
+    }
+  },
+  "ue5": {
+    "data_asset_name": "DA_EXCALTokenomics",
+    "blueprint_interface": "BPI_EXCALWallet",
+    "subsystem_name": "EXCALWeb3Subsystem",
+    "wallet_method": "ConnectWallet",
+    "forge_method": "StartForge"
+  }
+}
