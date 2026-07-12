@@ -1,0 +1,58 @@
+{
+  "version": 2,
+  "name": "excalibur-exs-oracle-api",
+  "public": true,
+  "comment": "Oracle API deployment configuration - Deploy this separately to oracle.excaliburcrypto.com",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "cmd/oracle-api/app.py"
+    }
+  ],
+  "functions": {
+    "cmd/oracle-api/app.py": {
+      "runtime": "python3.9",
+      "maxDuration": 10,
+      "memory": 1024,
+      "includeFiles": "pkg/**"
+    }
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "X-API-Key, Content-Type"
+        }
+      ]
+    }
+  ],
+  "env": {
+    "DOMAIN": "www.excaliburcrypto.com"
+  }
+}

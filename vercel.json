@@ -1,0 +1,66 @@
+{
+  "version": 2,
+  "name": "excalibur-exs",
+  "public": true,
+  "comment": "Main Excalibur EXS static website deployment (www.excaliburcrypto.com) - NOT for Oracle API. For Oracle API deployment to oracle.excaliburcrypto.com, use vercel-oracle-api.json",
+  "routes": [
+    {
+      "src": "^/$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/website/(.*)",
+      "dest": "/website/$1"
+    },
+    {
+      "src": "^/web/knights-round-table/(.*)",
+      "dest": "/web/knights-round-table/$1"
+    },
+    {
+      "src": "^/(.*\\.(html|css|js|png|jpg|jpeg|gif|svg|ico|json|woff|woff2|ttf|eot))",
+      "dest": "/$1"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    },
+    {
+      "source": "/website/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/website/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "cleanUrls": true
+}
