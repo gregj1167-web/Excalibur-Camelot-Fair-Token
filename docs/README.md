@@ -129,6 +129,15 @@ Welcome to the comprehensive documentation for the Excalibur Anomaly Protocol ($
 
 ---
 
+### [Camelot Fair Game Integration (CAMELOT_FAIR_RISE_OF_EXCALIBUR_INTEGRATION.md)](./CAMELOT_FAIR_RISE_OF_EXCALIBUR_INTEGRATION.md)
+**Purpose**: Unity/UE5 interactive dApp and EXCAL tokenomics handoff for Camelot Fair  
+**Topics**:
+- Shared Unity + UE5 integration config contract
+- Wallet + forge flow routing for in-game dApp actions
+- Enhanced tokenomics values for game economy balancing
+
+---
+
 ### [EXS Ecosystem Guide (EXS_ECOSYSTEM_GUIDE.md)](./EXS_ECOSYSTEM_GUIDE.md)
 **Purpose**: Overview of the complete Excalibur ecosystem  
 **Topics**:
